@@ -1,18 +1,16 @@
 import React from 'react';
-import myImage_sea from '../../img/sea.jpg';
+/*import myImage_sea from 'img/sea.jpg';*/
 import s from './Profile.module.css';
 import MyPosts from './MyPosts/MyPosts';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = () => {
-	return <div className={s.content}>
+	return (
 		<div>
-			<img src={myImage_sea} alt="sea.jpg"></img>
+			<ProfileInfo />
+			<MyPosts />
 		</div>
-		<div>
-			ava+description
-		</div>
-		<MyPosts />
-	</div>
+	)
 }
 
 export default Profile;
