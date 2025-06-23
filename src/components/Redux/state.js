@@ -22,7 +22,20 @@ let state = {
 			{ id: 5, name: "Виктория" },
 		],
 	},
-	sidebar: {}
+	sidebar: [
+		{ id: 1, name: "Drug" },
+		{ id: 2, name: "Alex" },
+		{ id: 3, name: "Sveta" },
+	]
+}
+
+export let addPost = (postMessage) => {
+	let newPost = {
+		id: 5,
+		message: postMessage,
+		likesCount: 0,
+	}
+	state.profilePage.posts.push(newPost);
 }
 
 export default state

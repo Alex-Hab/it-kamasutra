@@ -4,13 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import state from './components/Redux/state';
+import { addPost } from './components/Redux/state';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-
+addPost('samuraiJS');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
-		<App state={state} />
+		<Router>
+			<App state={state} />
+		</Router>
 	</React.StrictMode>
 );
 
