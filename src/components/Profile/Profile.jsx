@@ -9,11 +9,7 @@ const Profile = (props) => {
 	return (
 		<div>
 			<ProfileInfo />
-<<<<<<< HEAD
 			<MyPosts posts={props.state.posts} />
-=======
-			<MyPosts posts={props.posts} />
->>>>>>> 8fd1e523bd90d239a14e6df7df5cfb41b7c6a870
 		</div>
 	)
 }

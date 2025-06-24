@@ -7,15 +7,12 @@ const MyPosts = (props) => {
 	let postsElements =
 		props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />);
 
-<<<<<<< HEAD
 	let newPostElement = React.createRef();
 
 	let addPost = () => {
 		let text = newPostElement.current.value;
 		alert(text);
 	}
-=======
->>>>>>> 8fd1e523bd90d239a14e6df7df5cfb41b7c6a870
 	return (
 		<div className={s.postsBlock}>
 			<h3>My posts</h3>
