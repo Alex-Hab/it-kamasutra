@@ -9,12 +9,19 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 addPost('samuraiJS');
 
+
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
+<<<<<<< HEAD
 		<Router>
 			<App state={state} />
 		</Router>
+=======
+		<App posts={posts} dialogs={dialogs} messages={messages} />
+>>>>>>> 8fd1e523bd90d239a14e6df7df5cfb41b7c6a870
 	</React.StrictMode>
 );
 
