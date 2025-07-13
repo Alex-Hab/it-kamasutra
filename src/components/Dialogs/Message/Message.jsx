@@ -12,13 +12,7 @@ const Message = (props) => {
 
 	return (
 		<div className={s.message}>
-			{/*{ props.message }*/}
-			<div>
-				<textarea ref={newPostElement}></textarea>
-			</div>
-			<div>
-				<button onClick={addPost}>Отправить сообщение</button>
-			</div>
+			{props.message}
 		</div>
 	)
 }
