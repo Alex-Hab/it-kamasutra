@@ -1,12 +1,11 @@
 
 import reportWebVitals from './reportWebVitals';
-import store from './components/Redux/state';
+import store from './components/Redux/redux-store';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { addPost, updateNewPostText } from './components/Redux/state';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
