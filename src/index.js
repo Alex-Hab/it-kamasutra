@@ -7,14 +7,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import { Provider } from "./StoreContext"
 
 let rerenderEntireTree = (state) => {
 	const root = ReactDOM.createRoot(document.getElementById('root'));
 	root.render(
 		<React.StrictMode>
 			<Router>
-				<App state={state} dispatch={store.dispatch.bind(store)} store={store} />
+				<Provider store={store}>
+					<App />
+				</Provider>
 			</Router>
 		</React.StrictMode>
 	);
