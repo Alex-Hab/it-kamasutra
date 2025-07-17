@@ -1,3 +1,5 @@
+/*Этот файл неиспользуется болше приложением , он оставлен для примера */
+
 import dialogsReducer from "./dialogs-reducer";
 import profileReducer from "./profile-reducer";
 import sidebarReducer from "./sidebar-reducer";
