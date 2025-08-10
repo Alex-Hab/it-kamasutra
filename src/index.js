@@ -9,25 +9,16 @@ import App from './App';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from "react-redux"
 
-let rerenderEntireTree = (state) => {
-	const root = ReactDOM.createRoot(document.getElementById('root'));
-	root.render(
-		<React.StrictMode>
-			<Router>
-				<Provider store={store}>
-					<App />
-				</Provider>
-			</Router>
-		</React.StrictMode>
-	);
-};
 
-rerenderEntireTree(store.getState());
-
-store.subscribe(() => {
-	let state = store.getState();
-	rerenderEntireTree(state);
-});
-
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+	<React.StrictMode>
+		<Router>
+			<Provider store={store}>
+				<App />
+			</Provider>
+		</Router>
+	</React.StrictMode>
+);
 
 reportWebVitals(store.state);

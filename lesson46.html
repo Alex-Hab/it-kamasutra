@@ -1,0 +1,26 @@
+<script>
+	let age = 18;
+	let age2 = age;
+
+	var a = {
+		name: 'it-kamasutrs.com',
+		protocol: "https",
+		maxStudentsCount: 10,
+		isOnline: true,
+		students: ['ivan', 'andrey', 'farid'],
+		classroom: {
+			teacher: {
+				name: 'wew',
+				age: 18
+			}
+		}
+	}
+
+	var b = { ...a };
+	b.classroom.teacher.name = { ...a.classroom.teacher.name };
+	b.classroom = { ...a.classroom };
+	b.classroom.teacher = { ...a.classroom.teacher };
+	b.students = [...a.students];
+	b.classroom.teacher.name = "Dmitry"
+
+</script>
