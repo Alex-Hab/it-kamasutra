@@ -1,5 +1,5 @@
 import React from 'react';
-import myImage_sea from '../../../img/sea.jpg';
+import myImage_sea from './../../../asets/images/sea.jpg';
 import s from './ProfileInfo.module.css';
 
 const ProfileInfo = () => {
