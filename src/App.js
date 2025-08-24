@@ -5,17 +5,18 @@ import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
-import Profile from './components/Profile/Profile';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
+
 import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from './components/Profile/ProfileСontainer';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
-const App = (props) => {
+const App = () => {
 
 	return (
 
@@ -28,8 +29,9 @@ const App = (props) => {
 					<Route path='/dialogs'
 						element={<DialogsContainer />} />
 					<Route path='/profile'
-						element={<Profile />} />
-					<Route path='/users' element={<UsersContainer />} />
+						element={<ProfileContainer />} />
+					<Route path='/users'
+						element={<UsersContainer />} />
 
 					<Route path='/news' element={<News />} />
 					<Route path='/settings' element={<Settings />} />
