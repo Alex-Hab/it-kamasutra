@@ -4,11 +4,12 @@ import './App.css';
 
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
-import DialogsContainer from './components/Dialogs/DialogsContainer';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
+import LoginPage from './components/Login/login';
 
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from './components/Profile/ProfileСontainer';
 
@@ -28,13 +29,12 @@ const App = () => {
 				<Routes>
 					<Route path='/dialogs'
 						element={<DialogsContainer />} />
-					<Route path='/profile/'
-						element={<ProfileContainer />} />
 					<Route path='/profile/:userId?'
 						element={<ProfileContainer />} />
-
 					<Route path='/users'
 						element={<UsersContainer />} />
+					<Route path='/login/'
+						element={<LoginPage />} />
 
 					<Route path='/news' element={<News />} />
 					<Route path='/settings' element={<Settings />} />

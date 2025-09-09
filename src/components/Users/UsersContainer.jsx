@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { follow, unfollow, setUsers, setCurrentPage, toggleIsFetching, toggleFollowingProgress, getUsers } from "../Redux/users-reducer";
-import axios from 'axios';
 import Users from './Users';
 import Preloader from '../common/preloader/Preloader';
 import { usersAPI } from '../../api/api';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 class UsersContainer extends React.Component {
 	//Это запрос на сервак для получения списка пользователей
@@ -53,7 +53,7 @@ let mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, {
+export default withAuthRedirect(connect(mapStateToProps, {
 	follow, unfollow, setUsers, setCurrentPage, toggleIsFetching,
 	toggleFollowingProgress, getUsers,
-})(UsersContainer);
+})(UsersContainer));
