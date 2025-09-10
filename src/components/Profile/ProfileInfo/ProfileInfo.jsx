@@ -2,6 +2,8 @@ import React from 'react';
 import myImage_sea from './../../../asets/images/sea.jpg';
 import s from './ProfileInfo.module.css';
 import Preloader from '../../common/preloader/Preloader';
+import ProfileStatus from './ProfileStatus';
+
 
 const ProfileInfo = (props) => {
 	if (!props.profile) {
@@ -10,12 +12,13 @@ const ProfileInfo = (props) => {
 
 	return (
 		<div>
-			<div className='app-wrapper-content'>
+			{/*<div className='app-wrapper-content'>
 				<img src={myImage_sea} alt="sea.jpg"></img>
-			</div>
+			</div>*/}
+
 			<div className={s.descriptionBlock}>
 				<img src={props.profile.photos.large}></img>
-				ava+description
+				<ProfileStatus status={"Hello my friends"} />
 			</div>
 		</div>
 	)
