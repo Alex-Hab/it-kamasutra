@@ -1,11 +1,11 @@
 import React from 'react';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect'; import { compose } from 'redux';
-
 import { connect } from 'react-redux';
-import { follow, unfollow, setUsers, setCurrentPage, toggleIsFetching, toggleFollowingProgress, getUsers } from "../Redux/users-reducer";
+import { follow, unfollow, setCurrentPage, toggleFollowingProgress, setUsers, getUsers, toggleIsFetching } from "../Redux/users-reducer";
 import Users from './Users';
 import Preloader from '../common/preloader/Preloader';
 import { usersAPI } from '../../api/api';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 class UsersContainer extends React.Component {
 	//Это запрос на сервак для получения списка пользователей
@@ -13,19 +13,16 @@ class UsersContainer extends React.Component {
 		this.props.getUsers(this.props.currentPage, this.props.pageSize);
 
 	}
-
 	onPageChanged = (pageNumber) => {
-		this.props.getUsers(pageNumber, this.props.pageSize);
-
-		this.props.setCurrentPage(pageNumber);
 		this.props.toggleIsFetching(true);
+		this.props.setCurrentPage(pageNumber);
 
+		/*this.props.getUsers(pageNumber, this.props.pageSize);*/
 		usersAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
 			this.props.toggleIsFetching(false);
 			this.props.setUsers(data.items);
 		});
 	}
-
 	render() {
 		return <>
 			{this.props.isFetching ? <Preloader /> : null}
@@ -42,7 +39,6 @@ class UsersContainer extends React.Component {
 		</>
 	}
 }
-
 let mapStateToProps = (state) => {
 	return {
 		users: state.usersPage.users,
@@ -53,11 +49,11 @@ let mapStateToProps = (state) => {
 		followingInProgress: state.usersPage.followingInProgress,
 	}
 }
-
 export default compose(
 	/*withAuthRedirect,*/
 	connect(mapStateToProps, {
 		follow, unfollow, setCurrentPage,
 		toggleFollowingProgress, getUsers,
+		toggleIsFetching, setUsers
 	})
 )(UsersContainer);
