@@ -33,8 +33,8 @@ const MyPosts = (props) => {
 let AddNewPostForm = (props) => {
 	return (
 		<form onSubmit={props.handleSubmit}>
-			<Field name="newPostText" component={TextArea} placeholder="Post message"
-				validate={[required]} />
+			<Field name="newPostText" component={TextArea}
+				placeholder="Post message" validate={[required]} />
 			<div>
 				<button>Add post</button>
 			</div>
