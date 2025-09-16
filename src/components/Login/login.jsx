@@ -5,6 +5,7 @@ import { Input } from '../common/FormsControls/FormsControls'
 import { required } from '../../utils/validators/validators';
 import { connect } from 'react-redux';
 import { login } from '../Redux/auth-reduser';
+import { Navigate } from 'react-router-dom'
 
 const LoginForm = (props) => {
 	return (
@@ -40,10 +41,16 @@ const Login = (props) => {
 	const onSubmit = (formData) => {
 		props.login(formData.email, formData.password, formData.rememberMe);
 	}
+	if (props.isAuth) {
+		return <Navigate to={"/profile"} />
+	}
 	return <div>
 		<h1>LOGIN</h1>
 		<LoginReduxForm onSubmit={onSubmit} />
 	</div>
 }
 
-export default connect(null, { login })(Login);
+const mapStateToProps = (state) => ({
+	isAuth: state.auth.isAuth
+})
+export default connect(mapStateToProps, { login })(Login);

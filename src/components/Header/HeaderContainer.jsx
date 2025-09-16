@@ -4,7 +4,7 @@ import s from './Header.module.css';
 import { NavLink } from 'react-router-dom';
 import Header from './Header';
 import { connect } from 'react-redux';
-import { getAuthUserData } from '../Redux/auth-reduser';
+import { getAuthUserData, logout } from '../Redux/auth-reduser';
 import { authAPI } from '../../api/api';
 
 class HeaderContainer extends React.Component {
@@ -22,4 +22,4 @@ const mapStateToProps = (state) => ({
 	isAuth: state.auth.isAuth,
 	login: state.auth.login,
 })
-export default connect(mapStateToProps, { getAuthUserData })(HeaderContainer);
+export default connect(mapStateToProps, { getAuthUserData, logout })(HeaderContainer);
