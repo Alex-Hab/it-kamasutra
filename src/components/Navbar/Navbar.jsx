@@ -23,6 +23,9 @@ const Navbar = () => {
 			<div className={s.item}>
 				<NavLink to="/Users">Users</NavLink>
 			</div>
+			<div className={s.item}>
+				<NavLink to="/Login">Login</NavLink>
+			</div>
 		</nav>
 	)
 }
