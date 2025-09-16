@@ -3,8 +3,8 @@ import s from './MyPost.module.css';
 import Post from './Post/Post';
 import { reduxForm } from "redux-form";
 import { Field } from 'redux-form';
-import { required, maxLengthCreator } from '../../../utils/validators/validators'
-import { TextArea } from '../../common/FormsControls/FormsControls'
+import { required, maxLengthCreator } from '../../../utils/validators/validators';
+import { TextArea } from '../../common/FormsControls/FormsControls';
 
 const maxLength10 = maxLengthCreator(10);
 
@@ -38,7 +38,7 @@ let AddNewPostForm = (props) => {
 			<div>
 				<button>Add post</button>
 			</div>
-		</form>
+		</form >
 	)
 }
 
