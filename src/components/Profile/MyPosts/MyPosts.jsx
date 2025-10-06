@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, PureComponent } from 'react';
 import s from './MyPost.module.css';
 import Post from './Post/Post';
 import { reduxForm } from "redux-form";
@@ -8,8 +8,11 @@ import { TextArea } from '../../common/FormsControls/FormsControls'
 
 const maxLength10 = maxLengthCreator(10);
 
-const MyPosts = (props) => {
+const MyPosts = React.memo(props => {
 
+	/*shouldComponentUpdate(nextProps, nextState) {
+		return nextProps != this.props || nextState != this.state;
+	}*/
 	let postsElements =
 		props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />);
 
@@ -28,7 +31,7 @@ const MyPosts = (props) => {
 			</div>
 		</div>
 	)
-}
+});
 
 let AddNewPostForm = (props) => {
 	return (
