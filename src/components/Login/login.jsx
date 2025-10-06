@@ -8,12 +8,12 @@ import { login } from '../Redux/auth-reduser';
 import { Navigate } from 'react-router-dom';
 import style from './../common/FormsControls/FormsControls.module.css';
 
-const LoginForm = (handleSubmit, error) => {
+const LoginForm = ({ handleSubmit, error }) => {
 	return (
 		<form onSubmit={handleSubmit}>
 			{createField("Email", "email", [required], Input)}
 			{createField("Password", "password", [required], Input, { type: "password" })}
-			{createField(null, "rememberMe", [required], Input, { type: "checkbox" }, "remember me")}
+			{createField(null, "rememberMe", [], Input, { type: "checkbox" }, "remember me")}
 
 			{error && <div className={style.formSummaryError}>
 				{error}
