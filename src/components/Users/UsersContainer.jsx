@@ -2,10 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { follow, unfollow, setCurrentPage, toggleFollowingProgress, setUsers, requestUsers, toggleIsFetching } from "../Redux/users-reducer";
 import Users from './Users';
-import Preloader from '../common/preloader/Preloader';
-import { usersAPI } from '../../api/api';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect';
-import { compose } from 'redux';
+import Preloader from '../common/preloader/Preloader'; import { compose } from 'redux';
 import {
 	getUsers,
 	getPageSize,
@@ -18,10 +15,12 @@ import {
 class UsersContainer extends React.Component {
 	//Это запрос на сервак для получения списка пользователей
 	componentDidMount() {
-		this.props.requestUsers(this.props.currentPage, this.props.pageSize);
+		const { currentPage, pageSize } = this.props;
+		this.props.requestUsers(currentPage, pageSize);
 	}
 	onPageChanged = (pageNumber) => {
-		this.props.requestUsers(pageNumber, this.props.pageSize);
+		const { pageSize } = this.props;
+		this.props.requestUsers(pageNumber, pageSize);
 	}
 
 	render() {
@@ -40,16 +39,6 @@ class UsersContainer extends React.Component {
 		</>
 	}
 }
-/*let mapStateToProps = (state) => {
-	return {
-		users: state.usersPage.users,
-		pageSize: state.usersPage.pageSize,
-		totalUsersCount: state.usersPage.totalUsersCount,
-		currentPage: state.usersPage.currentPage,
-		isFetching: state.usersPage.isFetching,
-		followingInProgress: state.usersPage.followingInProgress,
-	}
-}*/
 let mapStateToProps = (state) => {
 	return {
 		users: getUsers(state),
