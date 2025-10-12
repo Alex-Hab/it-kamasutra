@@ -1,6 +1,5 @@
 import react from 'react'
 import styles from './users.module.css';
-import axios from 'axios';
 import userPhoto from '../../asets/images/user.png';
 import { NavLink } from 'react-router-dom';
 
