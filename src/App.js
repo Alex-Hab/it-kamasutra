@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import './App.css';
 
 import Navbar from './components/Navbar/Navbar';
@@ -21,6 +21,7 @@ import { compose } from 'redux';
 import Preloader from './components/common/preloader/Preloader';
 import { Provider } from "react-redux";
 import store from './components/Redux/redux-store';
+import withSuspense from './hoc/withSuspense';
 
 class App extends Component {
 	componentDidMount() {
@@ -39,11 +40,24 @@ class App extends Component {
 				<div className='app-wrapper-content'>
 					<Routes>
 						<Route path='/dialogs'
-							element={<DialogsContainer />} />
+							element={
+								<Suspense fallback={<div><Preloader /></div>}>
+									<DialogsContainer />
+								</Suspense>
+							} />
+
 						<Route path='/profile/:userId?'
-							element={<ProfileContainer />} />
+							element={
+								<Suspense fallback={<div><Preloader /></div>}>
+									<ProfileContainer />
+								</Suspense>
+							} />
 						<Route path='/users'
-							element={<UsersContainer />} />
+							element={
+								<Suspense fallback={<div><Preloader /></div>}>
+									<UsersContainer />
+								</Suspense>
+							} />
 						<Route path='/login/'
 							element={<LoginPage />} />
 
