@@ -80,7 +80,7 @@ let AppContainer = compose(
 
 const SamuraiJSApp = (props) => {
 	return <React.StrictMode >
-		<Router>
+		<Router basename="/demo-samurai">
 			<Provider store={store}>
 				<AppContainer />
 			</Provider>
