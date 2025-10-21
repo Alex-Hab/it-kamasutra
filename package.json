@@ -2,7 +2,7 @@
 	"name": "react-kabzda-1",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://alex-hab.github.io/demo-samurai/",
+	"homepage": "https://alex-hab.github.io/it-kamasutra/",
 	"dependencies": {
 		"@testing-library/dom": "^10.4.0",
 		"@testing-library/jest-dom": "^6.6.3",

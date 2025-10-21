@@ -22,7 +22,7 @@ import Preloader from './components/common/preloader/Preloader';
 import { Provider } from "react-redux";
 import store from './components/Redux/redux-store';
 import withSuspense from './hoc/withSuspense';
-
+import { HashRouter } from 'react-router-dom';
 class App extends Component {
 	componentDidMount() {
 		this.props.initializeApp();
@@ -80,7 +80,7 @@ let AppContainer = compose(
 
 const SamuraiJSApp = (props) => {
 	return <React.StrictMode >
-		<Router basename="/demo-samurai">
+		<Router basename={process.env.PUBLIC_URL}>
 			<Provider store={store}>
 				<AppContainer />
 			</Provider>
