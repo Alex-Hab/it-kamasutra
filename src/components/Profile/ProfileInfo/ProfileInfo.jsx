@@ -12,7 +12,11 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
 	}
 
 	const onMainPhotoSelected = (e) => {
+<<<<<<< HEAD
 		if (e.target.files.length) {
+=======
+		if (e.target.files.lenth) {
+>>>>>>> ccc1c068bca07750c178a93b4ab993829be06bce
 			savePhoto(e.target.files[0]);
 		}
 	}
