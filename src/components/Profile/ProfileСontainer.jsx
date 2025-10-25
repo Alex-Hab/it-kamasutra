@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { getUserProfile, getStatus, updateStatus, savePhoto } from "../Redux/profile-reducer";
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
+import { saveProfile } from '../Redux/profile-reducer'
 
 // HOC для передачи параметров маршрута как props
 function withRouter(Component) {
@@ -66,7 +67,7 @@ let mapStateToProps = (state) => ({
 });
 
 export default compose(
-	connect(mapStateToProps, { getUserProfile, getStatus, updateStatus, savePhoto }),
+	connect(mapStateToProps, { getUserProfile, getStatus, updateStatus, savePhoto, saveProfile }),
 	withRouter,
 	withAuthRedirect
 )(ProfileContainer);
