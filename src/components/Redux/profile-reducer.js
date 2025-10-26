@@ -91,7 +91,7 @@ export const saveProfile = (profile) => async (dispatch, getState) => {
 	} else {
 		dispatch(stopSubmit("edit-profile", { _error: response.data.messages[0] }));
 		//{ "contacts": { "facebook": response.data.messages[0] }
-		//return Promise.reject(response.data.messages[0]);
+		return Promise.reject(response.data.messages[0]);
 	}
 }
 export default profileReducer;
