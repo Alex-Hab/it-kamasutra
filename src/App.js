@@ -23,9 +23,20 @@ import { Provider } from "react-redux";
 import store from './components/Redux/redux-store';
 import withSuspense from './hoc/withSuspense';
 import { HashRouter } from 'react-router-dom';
+
 class App extends Component {
+	catchAllUnhandledErrors = (promiseRejectionEvent) => {
+
+		alert("Some error occured");
+		//console.error(promiseRejectionEvent);
+	}
 	componentDidMount() {
 		this.props.initializeApp();
+		window.addEventListener("unhandledrejection", this.catchAllUnhandleErrors);
+	}
+	componentWillUnmount() {
+		window.removeEventListener("unhandledrejection", this.catchAllUnhandleErrors);
+
 	}
 	render() {
 		if (!this.props.initialized) {
@@ -45,7 +56,6 @@ class App extends Component {
 									<DialogsContainer />
 								</Suspense>
 							} />
-
 						<Route path='/profile/:userId?'
 							element={
 								<Suspense fallback={<div><Preloader /></div>}>
@@ -64,6 +74,7 @@ class App extends Component {
 						<Route path='/news' element={<News />} />
 						<Route path='/settings' element={<Settings />} />
 						<Route path='/music' element={<Music />} />
+						<Route path='*' element={<div>404 not found</div>} />
 					</Routes>
 				</div>
 			</div>
